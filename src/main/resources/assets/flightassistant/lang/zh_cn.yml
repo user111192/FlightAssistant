@@ -1,0 +1,281 @@
+alerts.flightassistant:
+  alert:
+    .: ALERT
+    fault: SYS FAULT (SOME ALERTS LOST)
+  autoflight:
+    .: AUTO FLT
+    fault: SYS FAULT
+    pitch_fault: PITCH CTL FAULT
+    heading_fault: HDG CTL FAULT
+    autopilot_off: AP OFF
+    auto_thrust_off: A/THR OFF
+  elytra:
+    .: ELYTRA
+    fault: STATUS FAULT
+    low_durability: LOW DURABILITY
+    critical_durability: CRIT DURABILITY
+  fault:
+    computer:
+      reset: ' -SYSTEM: ON/RESET'
+    hud:
+      .: HUD
+      reset: ' -DISPLAY: ON/RESET'
+      flightassistant:altitude: ALT DSPL FAULT
+      flightassistant:attitude: ATT DSPL FAULT
+      flightassistant:automation_modes: AUTO MODE DSPL FAULT
+      flightassistant:coordinates: COORD DSPL FAULT
+      flightassistant:elytra_durability: E/DURA DSPL FAULT
+      flightassistant:flight_directors: FLT DIR DSPL FAULT
+      flightassistant:flight_path: F/PATH DSPL FAULT
+      flightassistant:heading: HDG DSPL FAULT
+      flightassistant:radar_altitude: R/ALT DSPL FAULT
+      flightassistant:speed: SPD DSPL FAULT
+      flightassistant:velocity_components: G/S & V/S DSPL FAULT
+  firework:
+    .: FRWK
+    fault: SYS FAULT
+    explosive:
+      main_hand: MAIN HAND EXPLOSIVE
+      off_hand: OFF HAND EXPLOSIVE
+    slow_response: SLOW RESPONSE
+    no_response: NO RESPONSE
+  flight_controls:
+    .: F/CTL
+    pitch_fault:
+      .: PITCH LIMIT FAULT
+      use_manual_pitch: ' -MAN PITCH OVRD: USE'
+    protections_lost:
+      .: PROTECT LOST
+      enable_air_data: ' -AIR DATA: ON'
+      enable_pitch: ' -PITCH SYS: ON'
+      max_pitch: ' MAX PITCH: 55* UP'
+      max_descent_rate: ' MAX DESCENT RATE: 8 BPS'
+  gpws:
+    .: GPWS
+    fault: FAULT
+    sink_rate: SINK RATE
+    terrain_ahead: TERRAIN AHEAD
+    pull_up: PULL UP
+  stall:
+    .: STALL
+    detection_fault: DETECT FAULT
+  navigation:
+    .: NAV
+    air_data_fault: AIR DATA FAULT
+    chunk_status_fault: CHUNK STATUS FAULT
+    void_proximity_fault: VOID PROX FAULT
+    slow_chunk_loading: SLOW CHUNK LOADING
+    no_chunks_loaded: NO CHUNKS LOADED
+    approaching_void_damage_altitude: APPR.ING VOID DMG ALT
+    reached_void_damage_altitude: REACHED VOID DMG ALT
+  thrust:
+    .: THRUST
+    fault: SYS FAULT
+    no_source: NO SRC AVAIL
+    locked:
+      .: LOCKED
+      use_keys: ' -THR CTRL KEYS: USE'
+    reverse_not_supported:
+      .: REVERSE NOT SUPPORTED
+      set_forward: ' -THR: SET FORWARD'
+
+config.flightassistant:
+  categories:
+    global: 全局选项
+    no_elytra: 未飞行 (没有鞘翅)
+    has_elytra: 未飞行 (有鞘翅)
+    flying: 飞行中
+    safety: 警报和飞行保护
+  options:
+    global:
+      mod_enabled: 启用 FlightAssistant 模组
+      hud_enabled: 启用 HUD
+      safety_enabled: 启用安全特性 (警报和飞行保护)
+      automations_allowed_in_overlays: 允许自动化 (AP和飞行保护) 在GUI中运行 (物品栏和暂停界面)
+    display:
+      frame:
+        .: 框架
+        width: Frame width
+        height: Frame height
+      colors:
+        .: 颜色
+        primary: Primary color
+        advisory: Advisory color
+        caution: Caution color
+        warning: Warning color
+      attitude:
+        .: 姿态显示
+        show:
+          .: Show attitude
+          horizon_and_ladder: Horizon and pitch ladder
+          horizon_only: Horizon only
+          disabled: 禁用
+        degree_step: Line degree step
+        horizon_outside_frame: Draw horizon outside frame
+        pitch_outside_frame: Draw pitch lines outside frame
+      heading:
+        .: Heading display
+        show_reading: Show heading reading
+        show_scale: Show heading scale on horizon line
+        scale_step: Heading degree step
+      speed:
+        .: Speed display
+        show_reading: Show speed reading
+        show_scale: Show speed scale
+        show_ground: Show ground speed
+        show_vertical: Show vertical speed
+      altitude:
+        .: Altitude display
+        show_reading: Show altitude reading
+        show_scale: Show altitude scale
+        show_radar: Show radar altitude
+      flight_path_vector:
+        .: Flight path vector display
+        show: Show flight path vector
+        size: Flight path vector size
+      elytra_durability:
+        .: Elytra durability display
+        show: Show elytra durability
+        units:
+          .: Elytra durability units
+          raw: Minecraft 原始格式 (432)
+          percentage: 百分比 (66%)
+          time: 时间 (近似的, 3:20)
+      misc:
+        .: 杂项
+        coordinates: Show coordinates
+        alerts: 显示警报
+        automation_modes: 显示自动飞行模式
+        flight_directors: 显示FD(飞行指引)
+    safety:
+      alert_volume: 警报音量
+      consider_invulnerability: 在无敌时禁用警报和飞行保护（例如创造）
+      alert_mode:
+        warning_and_caution: 警告和注意
+        warning: 只有警告
+        caution: 只有注意
+        disabled: 禁用
+      elytra:
+        .: 鞘翅
+        durability_alert_mode: 鞘翅耐久度警告模式
+        auto_open: 自动打开鞘翅
+        close_underwater: 在水下自动关闭鞘翅
+      stall:
+        .: 失速
+        alert_mode: 失速警告模式
+        limit_pitch: Limit pitch to prevent stalls
+        auto_thrust: Automatically use thrust to recover from stalls
+      void:
+        .: 虚空伤害高度
+        alert_mode: 虚空伤害高度警告模式
+        limit_pitch: Limit pitch above the void
+        auto_thrust: Automatically use thrust to escape the void
+        auto_pitch: Automatically raise pitch to escape the void
+      gpws:
+        .: GPWS/近地警告系统
+        sink_rate:
+          alert_mode: 下降率警告模式
+          limit_pitch: Limit pitch when sink rate is excessive
+          auto_pitch: Automatically raise pitch to recover from excessive sink rate
+        obstacle:
+          alert_mode: 地形警告模式
+          limit_pitch: Limit pitch when terrain is detected
+          auto_pitch: Automatically raise pitch to escape from terrain
+      firework:
+        .: 烟花
+        lock_explosive: 锁定会爆炸的烟花
+
+menu.flightassistant:
+  .: 飞行设置
+  flight_plan: Flight plan
+  system:
+    .: 系统状态
+    fault: FAULT
+    'off': 'OFF'
+    on_reset: ON/RESET
+    name:
+      hud:
+        flightassistant:alert: Alert display
+        flightassistant:altitude: Altitude display
+        flightassistant:attitude: Attitude display
+        flightassistant:automation_modes: Automation modes display
+        flightassistant:coordinates: Coordinates display
+        flightassistant:elytra_durability: Elytra durability display
+        flightassistant:flight_directors: Flight directors display
+        flightassistant:flight_path: Flight path display
+        flightassistant:heading: Heading display
+        flightassistant:radar_altitude: Radar altitude display
+        flightassistant:speed: Speed
+        flightassistant:velocity_components: G/S & V/S display
+      computer:
+        flightassistant:air_data: Air data computer
+        flightassistant:alert: Alert computer
+        flightassistant:chunk_status: Chunk status computer
+        flightassistant:elytra_status: Elytra status computer
+        flightassistant:flight_protections: Flight protections computer
+        flightassistant:ground_proximity: Ground proximity computer
+        flightassistant:stall: Stall computer
+        flightassistant:void_proximity: Void proximity computer
+        flightassistant:autopilot: Automatics computer
+        flightassistant:firework: Firework computer
+        flightassistant:heading: Heading computer
+        flightassistant:pitch: Pitch computer
+        flightassistant:thrust: Thrust computer
+  autoflight:
+    .: 自动飞行
+    flight_directors: FD 飞行指引
+    auto_thrust: A/THR 自动推力
+    autopilot: AP 自动驾驶
+    speed: 速度 SPD
+    pitch: 俯仰 PITCH
+    heading: 航向 HDG
+
+mode.flightassistant:
+  thrust:
+    manual: MAN THR %s
+    manual_toga: MAN TOGA
+    locked: THR LK %s
+    locked_toga: TOGA LK
+    toga: THR TOGA
+    speed: SPD %s
+  pitch:
+    void_protection: VOID PROT
+    void_escape: VOID ESC
+    stall_protection: STALL PROT
+    terrain_protection: TERR PROT
+    terrain_escape: TERR ESC
+    selected: PITCH %s
+  heading:
+    selected: HDG %s
+
+short.flightassistant:
+  alert: ALERT
+  altitude: ALT
+  attitude: ATT
+  auto_thrust: A/THR
+  autopilot: AP
+  automation_modes: AUTO/MODE
+  elytra: E
+  elytra_durability: E/DURA
+  flight_directors: FD
+  flight_path: F/PTH
+  ground: GRND
+  ground_speed: 'G/S%s'
+  heading: HDG
+  infinite: INFN
+  radar_altitude: R/ALT
+  speed: SPD
+  vertical_speed: 'V/S%s'
+  void: VOID
+
+keys.flightassistant:
+  .: 飞行助手
+  open_flight_setup: Open flight setup screen
+  autopilot_disconnect: Disconnect autopilot
+  manual_pitch_override: Manual pitch override (hold)
+  hide_current_alert: Hide currently active alert
+  show_hidden_alert: Show last hidden alert
+  decrease_thrust: Decrease thrust
+  increase_thrust: Increase thrust
+  set_idle: 设置慢车推力 (0%)
+  set_toga: 设置TOGA推力 (100%)
